@@ -3,15 +3,13 @@
 # Choose between www and non-www, listen on the *wrong* one and redirect to
 # the right one -- http://wiki.nginx.org/Pitfalls#Server_Name
 server {
-  # don't forget to tell on which port this server listens
   listen [::]:80;
   listen 80;
 
-  # listen on the www host
-  server_name www.example.com;
+  server_name site.com;
 
   # and redirect to the non-www host (declared below)
-  return 301 $scheme://example.com$request_uri;
+  return 301 $scheme://www.site.com$request_uri;
 }
 
 server {
@@ -24,7 +22,7 @@ server {
   server_name example.com;
 
   # Path for static files
-  root /sites/example.com/public;
+  root /srv/site/public;
 
   #Specify a charset
   charset utf-8;
