@@ -36,6 +36,8 @@ RUN apt-get update && \
     ln -sf /dev/stdout /var/log/nginx/access.log && \
     ln -sf /dev/stderr /var/log/nginx/error.log
 
+COPY config /usr/local/etc/nginx
+
 VOLUME ["/var/cache/nginx", "/usr/local/etc/nginx/sites-enabled", "/etc/ssl/certs"]
 
 EXPOSE 80 443
