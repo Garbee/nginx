@@ -45,4 +45,4 @@ VOLUME ["/var/cache/nginx", "/usr/local/etc/nginx/sites-enabled", "/etc/ssl/cert
 
 EXPOSE 80 443
 
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["/usr/local/bin/nginx", "-c", "/usr/local/etc/nginx/nginx.conf"]
