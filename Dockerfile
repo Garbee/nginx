@@ -34,11 +34,14 @@ RUN apt-get update && \
     touch /var/log/nginx/access.log && \
     touch /var/log/nginx/error.log && \
     ln -sf /dev/stdout /var/log/nginx/access.log && \
-    ln -sf /dev/stderr /var/log/nginx/error.log
+    ln -sf /dev/stderr /var/log/nginx/error.log && \
+    mkdir -p /srv/site && \
+    apt-get remove --purge -y build-essential zlib1g-dev libpcre3-dev libssl-dev gcc libc6-dev && \
+    rm -rf /var/lib/apt/lists/*
 
 COPY config /usr/local/etc/nginx
 
-VOLUME ["/var/cache/nginx", "/usr/local/etc/nginx/sites-enabled", "/etc/ssl/certs"]
+VOLUME ["/var/cache/nginx", "/usr/local/etc/nginx/sites-enabled", "/etc/ssl/certs", "/srv/site"]
 
 EXPOSE 80 443
 
