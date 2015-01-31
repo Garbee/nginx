@@ -41,7 +41,7 @@ RUN apt-get update && \
 
 COPY config /usr/local/etc/nginx
 
-VOLUME ["/var/cache/nginx", "/usr/local/etc/nginx/sites-enabled", "/etc/ssl/certs", "/srv/site"]
+VOLUME ["/var/cache/nginx", "/usr/local/etc/nginx", "/etc/ssl/certs", "/srv/site"]
 
 EXPOSE 80 443
 
