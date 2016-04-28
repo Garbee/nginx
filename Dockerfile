@@ -2,7 +2,7 @@ FROM ubuntu:14.04
 MAINTAINER Jonathan Garbee <jonathan@garbee.me>
 
 ENV NPS_VERSION 1.9.32.4
-ENV NGINX_VERSION 1.8.0
+ENV NGINX_VERSION 1.10.0
 
 RUN apt-get update && \
     apt-get upgrade -y && \
@@ -23,7 +23,6 @@ RUN apt-get update && \
     --conf-path=/usr/local/etc/nginx/nginx.conf \
     --pid-path=/run/nginx.pid \
     --with-http_ssl_module \
-    --with-http_spdy_module \
     --add-module=/tmp/ngx_pagespeed-${NPS_VERSION}-beta && \
     make && \
     make install && \
