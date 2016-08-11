@@ -2,7 +2,7 @@ FROM ubuntu:14.04
 MAINTAINER Jonathan Garbee <jonathan@garbee.me>
 
 ENV NPS_VERSION 1.9.32.4
-ENV NGINX_VERSION 1.10.0
+ENV NGINX_VERSION 1.10.1
 
 RUN apt-get update && \
     apt-get upgrade -y && \
